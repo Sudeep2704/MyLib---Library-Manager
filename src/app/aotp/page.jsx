@@ -1,51 +1,57 @@
-
-
 "use client";
-import { useState } from "react";
 import Link from "next/link";
 
 const AuthPage = () => {
-  const [isLogin, setIsLogin] = useState(true);
-
   return (
-    <div className="flex flex-wrap md:flex-nowrap h-screen w-full bg-[#CDF6FB]">
-      {/* Left - OTP Section */}
-      <div className="relative w-full md:w-2/3 bg-[#CDF6FB] flex flex-col justify-center items-center p-6 md:p-10">
-        {/* Back Button */}
-        <Link
-          href="/aforget"
-          className="absolute top-5 left-5 bg-white border border-gray-300 px-3 py-1 text-sm rounded-lg hover:bg-gray-200"
-        >
-          BACK
-        </Link>
+    <div className="min-h-screen w-full bg-gradient-to-br from-cyan-100 via-sky-100 to-indigo-100 flex items-center justify-center p-6">
+      
+      {/* Main Card */}
+      <div className="flex w-full max-w-5xl overflow-hidden rounded-3xl shadow-2xl bg-white">
+        
+        {/* OTP Section */}
+        <div className="relative w-full md:w-2/3 flex flex-col justify-center px-8 md:px-16 py-12">
+          
+          {/* Back Button */}
+          <Link
+            href="/aforget"
+            className="absolute top-6 left-6 text-sm text-gray-500 hover:text-gray-800 transition"
+          >
+            ← Back
+          </Link>
 
-        <h2 className="text-3xl md:text-4xl font-semibold mb-3 md:mb-4 font-sans">
-          Check Your Mailbox
-        </h2>
-        <p className="text-gray-600 mb-6 md:mb-8">Please enter the OTP to proceed</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+            Check your mailbox 📩
+          </h2>
+          <p className="text-gray-500 mb-8">
+            Enter the 6-digit OTP sent to your email
+          </p>
 
-        {/* OTP Input */}
-        <input
-          type="text"
-          placeholder="OTP"
-          className="w-full md:w-80 p-2 mb-3 border mt-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-center"
-        />
+          {/* OTP Input */}
+          <input
+            type="text"
+            maxLength={6}
+            placeholder="• • • • • •"
+            className="tracking-[0.5em] text-center text-lg w-full max-w-sm p-4 mb-6 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
 
-        {/* Verify Button */}
-        <Link
-          href="/areset"
-          className="bg-black mt-1 text-white px-6 py-2 rounded-xl text-center text-lg w-full md:w-80 hover:opacity-80"
-        >
-          VERIFY
-        </Link>
-      </div>
+          {/* Verify Button */}
+          <Link
+            href="/areset"
+            className="bg-indigo-600 text-white py-3 rounded-xl text-lg font-semibold text-center w-full max-w-sm hover:bg-indigo-700 transition"
+          >
+            Verify OTP
+          </Link>
+        </div>
 
-      {/* Right - Library Section */}
-      <div className="w-full md:w-1/3 bg-purple-600 flex flex-col justify-center items-center p-6 md:p-10 text-white md:rounded-l-3xl">
-        <h1 className="text-4xl md:text-5xl font-bold">LIBRARY</h1>
-        <p className="text-md md:text-lg mt-6 md:mt-10 w-64 md:w-56 text-center">
-          "Your premier digital library for borrowing and reading books"
-        </p>
+        {/* Library Info */}
+        <div className="hidden md:flex w-1/3 bg-gradient-to-br from-purple-600 to-indigo-600 flex-col justify-center items-center px-8 py-12 text-white">
+          <h1 className="text-4xl font-extrabold tracking-wide mb-6">
+            LIBRARY
+          </h1>
+          <p className="text-center text-indigo-100 max-w-xs leading-relaxed">
+            Your premier digital library for borrowing and reading books
+          </p>
+        </div>
       </div>
     </div>
   );
